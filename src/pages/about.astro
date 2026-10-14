@@ -16,31 +16,31 @@ import { SITE_TITLE } from '../consts';
 			<main class="page-content">
 				<h1>Haberler & Tehdit İstihbaratı</h1>
 				<p class="news-intro">
-					Küresel siber güvenlik gündemi, kritik zafiyet duyuruları (CVE), veri ihlalleri ve dijital altyapıları ilgilendiren teknik gelişmeler.
+					Siber güvenlik dünyasından son dakika kritik zafiyet duyuruları (CVE), zararlı yazılım analizleri ve küresel tehdit istihbaratı.
 				</p>
 
 				<div class="news-container">
 					<article class="card-box">
-						<div class="news-date">14 EKİM 2026 &bull; TEHDİT ANALİZİ</div>
-						<h3>LLM ve Yapay Zeka Sistemlerinde Yeni Tür "Prompt Injection" Zafiyetleri Artıyor</h3>
+						<div class="news-date">14 EKİM 2026 &bull; KRİTİK ZAFİYET (CVE-2026-2180)</div>
+						<h3>Linux Kernel Tarafında "Use-After-Free" Yetki Yükseltme Açığı Tespit Edildi</h3>
 						<p>
-							Güvenlik araştırmacıları, kurumsal sistemlere entegre edilen yapay zeka ajanlarının dolaylı komut enjeksiyonu (Indirect Prompt Injection) ile suistimal edildiğini doğruladı. Saldırganların yetkisiz veri sızdırdığı olaylara karşı yeni izleme protokolleri yayımlandı.
+							Linux çekirdeğinin ağ yönetim bileşenlerinde tespit edilen kritik zafiyet, yerel kullanıcıların sistemde 'root' yetkisi almasına olanak tanıyor. Güvenlik araştırmacıları tarafından PoC (Proof of Concept) taslağı yayımlanan açık için tüm dağıtımlara acil yamalar servis edildi.
 						</p>
 					</article>
 
 					<article class="card-box">
-						<div class="news-date">11 EKİM 2026 &bull; ALTYAPI & GELİŞTİRİCİ</div>
-						<h3>Açık Kaynak Kod Depolarında "Typosquatting" Saldırılarına Karşı Yeni Önlemler</h3>
+						<div class="news-date">12 EKİM 2026 &bull; ZARARLI YAZILIM / RAT</div>
+						<h3>"AsyncRAT" Varyantları Gelişmiş Obfuscation Yöntemleriyle Yeniden Sahada</h3>
 						<p>
-							NPM ve PyPI gibi paket yöneticileri, zararlı yazılım içeren taklit paket yayınlarının önüne geçmek adına geliştiriciler için donanım tabanlı 2FA ve zorunlu imzalama süreçlerini devreye soktu.
+							Son haftalarda oltalama kampanyaları üzerinden dağıtılan yeni AsyncRAT türevlerinin, bellek içi çalıştırma (Reflective DLL Injection) ve EDR engelleme tekniklerini agresif şekilde kullandığı ortaya çıktı. Analiz raporları güvenlik duvarı kurallarının güncellenmesini öneriyor.
 						</p>
 					</article>
 
 					<article class="card-box">
-						<div class="news-date">08 EKİM 2026 &bull; SİBER SAVUNMA</div>
-						<h3>Kritik Ağ Cihazlarında Sıfırıncı Gün (0-Day) Zafiyet Alarmı</h3>
+						<div class="news-date">09 EKİM 2026 &bull; TEDARİK ZİNCİRİ GÜVENLİĞİ</div>
+						<h3>PyPI Üzerinde 50'den Fazla Zararlı Python Paketi Yakalandı</h3>
 						<p>
-							Kurumsal L3 router ve firewall ürünlerinde tespit edilen uzaktan kod çalıştırma (RCE) zafiyeti için üretici firmalar acil yamalar yayımladı. Güvenlik ekiplerinin yönetim arayüzlerini derhal izole etmeleri öneriliyor.
+							Geliştiricilerin sistemlerini hedef alan ve popüler kütüphanelerin isim benzerliklerini (Typosquatting) kullanan zararlı paketler tespit edildi. Sistemde Discord token'ları ve SSH anahtarlarını çalan bu kütüphaneler PyPI depolarından kaldırıldı.
 						</p>
 					</article>
 				</div>
