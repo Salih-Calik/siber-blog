@@ -4,55 +4,134 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
+// 1. Astro Image bileşenini ve yeni resmimizi import ediyoruz
 import { Image } from 'astro:assets';
-import anasayfaImg from '../assets/ana-sayfa.png';
+import anasayfaImg from '../assets/anasayfa.png';
 ---
 
 <!doctype html>
 <html lang="tr">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				max-width: 680px;
+				margin: 0 auto;
+				padding: 2.5rem 1rem;
+				color: #e2e8f0;
+			}
+			.banner-container img {
+				width: 100%;
+				height: auto;
+				border-radius: 8px;
+				border: 1px solid rgba(255, 255, 255, 0.05);
+				margin: 2rem 0;
+			}
+			h1 {
+				font-size: 2rem;
+				font-weight: 800;
+				letter-spacing: -0.025em;
+				margin-bottom: 0.5rem;
+				color: #f8fafc;
+			}
+			.sub {
+				color: #94a3b8;
+				font-size: 1.05rem;
+				font-weight: 400;
+				margin-bottom: 2.5rem;
+			}
+			p, li {
+				color: #cbd5e1;
+				font-size: 1.05rem;
+				line-height: 1.8;
+			}
+			.lead {
+				font-size: 1.15rem;
+				color: #e2e8f0;
+				margin-bottom: 2rem;
+			}
+			.focus-grid {
+				display: flex;
+				flex-direction: column;
+				gap: 1.25rem;
+				margin: 2.5rem 0;
+				padding-left: 0;
+				list-style: none;
+			}
+			.focus-item {
+				border-left: 2px solid #3b82f6;
+				padding-left: 1.25rem;
+			}
+			.focus-title {
+				font-weight: 700;
+				color: #f8fafc;
+				display: block;
+				margin-bottom: 0.25rem;
+			}
+			.focus-desc {
+				color: #94a3b8;
+				font-size: 0.95rem;
+			}
+			h2 {
+				font-size: 1.35rem;
+				font-weight: 700;
+				margin-top: 3.5rem;
+				margin-bottom: 1rem;
+				color: #f8fafc;
+			}
+			.dark-text {
+				color: #64748b;
+				font-size: 0.95rem;
+				line-height: 1.6;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🚀 Siber Vizyon: Dijital Güvenlik & Teknoloji Rehberi</h1>
+			<h1>Siber Vizyon</h1>
+			<p class="sub">Salih Çalık &bull; Off-Sec & Network Logbook</p>
 			
-			<div style="margin: 2rem 0; text-align: center;">
+			<div class="banner-container">
+				<!-- 2. Import ettiğimiz anasayfaImg değişkenini buraya veriyoruz -->
 				<Image 
 					src={anasayfaImg} 
-					alt="Siber Vizyon Banner" 
-					style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" 
+					alt="Siber Vizyon Workspace" 
 				/>
 			</div>
 
-			<p>
-				Hoş geldiniz! <strong>Siber Vizyon</strong>; web uygulama güvenliği, siber tehdit analizi, 
-				ağ mimarileri ve güncel yazılım teknolojilerini derinlemesine incelemek amacıyla kurulmuş 
-				bağımsız bir teknik bilgi platformudur.
+			<p class="lead">
+				Burası dijital dünya zırhlarının nerede kırıldığını, ağların nasıl konuşlandırıldığını 
+				ve teknolojinin güvenlik ekseninde nasıl şekillendiğini anlama çabasıdır.
 			</p>
 
-			<h2>🎯 Neler Bulacaksınız?</h2>
-			<ul>
-				<li>
-					<strong>Web Uygulama Güvenliği:</strong> Sık karşılaşılan zafiyet türleri (OWASP Top 10), 
-					sızma testi (penetration testing) metodolojileri ve güvenli kod geliştirme pratikleri.
+			<p>
+				Siber Vizyon; kurumsal savunma sistemlerinden (L2/L3) sızma testlerine (Offensive Security) 
+				kadar uzanan teknik bir serüvenin kayıt defteridir. Teoriyle yetinmeyip pratikte neyin 
+				çalıştığını, siber tehditlerin ve zafiyetlerin anatomisini dökümantasyon haline getiriyorum.
+			</p>
+
+			<h2>Odak Noktaları</h2>
+			<ul class="focus-grid">
+				<li class="focus-item">
+					<span class="focus-title">Ofansif Güvenlik</span>
+					<span class="focus-desc">Web uygulama zafiyetleri, istismar (exploitation) yöntemleri ve pratik sızma testi (OSCP / OWASP) analizleri.</span>
 				</li>
-				<li>
-					<strong>Ağ & Sistem Mimarileri:</strong> L2 anahtarlama (switching), L3 yönlendirme (routing), 
-					güvenlik duvarı (firewall) yapılandırmaları ve kurumsal ağ altyapıları.
+				<li class="focus-item">
+					<span class="focus-title">Ağ & Altyapı Mimarisi</span>
+					<span class="focus-desc">L2/L3 anahtarlama ve yönlendirme, firewall yapılandırmaları ve kurumsal ağların segmentasyonu.</span>
 				</li>
-				<li>
-					<strong>Teknoloji & Siber Haberler:</strong> Dijital dünyada yaşanan en son gelişmeler, 
-					kritik zafiyet duyuruları (CVE) ve güncel siber güvenlik analizleri.
+				<li class="focus-item">
+					<span class="focus-title">Tehdit & Zafiyet Günlüğü</span>
+					<span class="focus-desc">Gündemdeki sıfırıncı gün (0-day) açıkları, CVE analizleri ve dijital dünyanın en taze kırılma noktaları.</span>
 				</li>
 			</ul>
 
-			<h2>💡 Misyon</h2>
-			<p>
-				Karmaşık siber güvenlik ve ağ mimarisi kavramlarını, anlaşılır ve uygulamaya dönük 
-				teknik rehberlerle topluluğa aktarmak; bilgi güvenliği farkındalığını artırırken modern 
-				yazılım geliştirme süreçlerine katkı sağlamak.
+			<h2>Misyon</h2>
+			<p class="dark-text">
+				Karmaşık ağ mimarilerini ve ofansif teknikleri, gereksiz gürültüden arındırarak saf, 
+				anlaşılır ve uygulanabilir dokümanlara dönüştürmek. Bilgiyi paylaşarak hem kendi gelişimimi 
+				kayıt altına almak hem de topluluğun dijital savunma hattını güçlendirmek.
 			</p>
 		</main>
 		<Footer />
