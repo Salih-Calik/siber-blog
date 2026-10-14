@@ -4,27 +4,88 @@ import haberlerImg from '../assets/haberler.png';
 ---
 
 <Layout
-	title="Güncel Teknoloji & Siber Güvenlik Haberleri"
-	description="Teknoloji dünyasından en son gelişmeler, siber tehdit duyuruları ve dijital haberler."
+	title="Haberler & Tehdit İstihbaratı"
+	description="Siber güvenlik dünyasından son dakika zafiyet analizleri, CVE duyuruları ve dijital teknoloji haberleri."
 	pubDate={new Date('October 14 2026')}
 	heroImage={haberlerImg}
 >
-	<p>
-		Teknoloji ve siber güvenlik dünyasında yaşanan son dakika gelişmelerini, 
-		kritik zafiyet duyurularını ve dijital dünyadaki önemli haberleri bu sayfa üzerinden takip edebilirsiniz.
-	</p>
+	<style>
+		.news-header {
+			margin-bottom: 2.5rem;
+		}
+		.news-header h1 {
+			font-size: 2.2rem;
+			font-weight: 800;
+			color: #000000;
+			margin-bottom: 0.5rem;
+		}
+		.news-header p {
+			color: #0f172a;
+			font-size: 1.05rem;
+			line-height: 1.7;
+		}
+		.news-list {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			margin-top: 2rem;
+		}
+		.news-card {
+			border-left: 3px solid #2337ff;
+			padding-left: 1.25rem;
+		}
+		.news-meta {
+			font-size: 0.85rem;
+			font-weight: 700;
+			color: #2337ff;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			margin-bottom: 0.25rem;
+		}
+		.news-title {
+			font-size: 1.25rem;
+			font-weight: 800;
+			color: #000000;
+			margin: 0 0 0.5rem 0;
+			line-height: 1.4;
+		}
+		.news-content {
+			color: #000000;
+			font-size: 0.98rem;
+			line-height: 1.7;
+			margin: 0;
+		}
+	</style>
 
-	<h2>🔥 Öne Çıkan Teknoloji Haberleri</h2>
+	<div class="news-header">
+		<p>
+			Küresel siber güvenlik gündemi, kritik zafiyet duyuruları (CVE), veri ihlalleri ve dijital altyapıları ilgilendiren teknik gelişmelere dair özet aktarımlar.
+		</p>
+	</div>
 
-	<h3>1. Yapay Zeka Destekli Oltalama Saldırılarına Karşı Yeni Önlemler</h3>
-	<p>
-		Güvenlik araştırmacıları, yapay zeka ile oluşturulan karmaşık oltalama (phishing) e-postalarına karşı 
-		yeni tespit mekanizmaları geliştirdi. Detaylı analizler siber güvenlik dünyasında geniş yankı buldu.
-	</p>
+	<div class="news-list">
+		<article class="news-card">
+			<div class="news-meta">14 Ekim 2026 &bull; Tehdit Analizi</div>
+			<h3 class="news-title">LLM ve Yapay Zeka Sistemlerinde Yeni Tür "Prompt Injection" Zafiyetleri Artıyor</h3>
+			<p class="news-content">
+				Güvenlik araştırmacıları, kurumsal sistemlere entegre edilen yapay zeka ajanlarının dolaylı komut enjeksiyonu (Indirect Prompt Injection) ile suistimal edildiğini doğruladı. Saldırganların, sistem komutlarını manipüle ederek yetkisiz veri sızdırdığı olaylara karşı yeni izleme ve filtreleme protokolleri yayımlandı.
+			</p>
+		</article>
 
-	<h3>2. Yazılım Geliştiriciler İçin Yeni Nesil Araçlar Yayınlandı</h3>
-	<p>
-		Öğrenci geliştirici paketleri ve açık kaynak kodlu projeler için sunulan ücretsiz araçlar güncellendi. 
-		Geliştiricilerin iş akışını hızlandıracak yeni eklentiler erişime açıldı.
-	</p>
+		<article class="news-card">
+			<div class="news-meta">11 Ekim 2026 &bull; Altyapı & Geliştirici</div>
+			<h3 class="news-title">Açık Kaynak Kod Depolarında "Typosquatting" Saldırılarına Karşı Yeni Kimlik Doğrulama</h3>
+			<p class="news-content">
+				NPM ve PyPI gibi paket yöneticileri, zararlı yazılım içeren taklit paket yayınlarının önüne geçmek adına geliştiriciler için donanım tabanlı 2FA ve zorunlu imzalama süreçlerini devreye soktu. Son çeyrekte engellenen zararlı paket sayısı rekor seviyeye ulaştı.
+			</p>
+		</article>
+
+		<article class="news-card">
+			<div class="news-meta">08 Ekim 2026 &bull; Siber Savunma</div>
+			<h3 class="news-title">Kritik Ağ Cihazlarında Sıfırıncı Gün (0-Day) Zafiyet Alarmı</h3>
+			<p class="news-content">
+				Kurumsal L3 router ve firewall ürünlerinde tespit edilen uzaktan kod çalıştırma (RCE) zafiyeti için üretici firmalar acil yamalar yayımladı. Güvenlik ekiplerinin, dışa açık cihazlardaki yönetim arayüzlerini derhal izole etmeleri öneriliyor.
+			</p>
+		</article>
+	</div>
 </Layout>
