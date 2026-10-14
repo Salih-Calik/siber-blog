@@ -2,105 +2,77 @@
 import BaseHead from '../components/BaseHead.astro';
 import Sidebar from '../components/Sidebar.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getCollection } from 'astro:content';
-
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+import { Image } from 'astro:assets';
+import anasayfaImg from '../assets/ana-sayfa.png';
 ---
 
 <!doctype html>
 <html lang="tr">
 	<head>
-		<BaseHead title={`Teknik Makaleler - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<div class="app-wrapper">
 			<Sidebar />
 			
 			<main class="page-content">
-				<h1>Teknik Makaleler</h1>
-				<p class="blog-intro">
-					Ofansif güvenlik, sızma testleri, L2/L3 ağ mimarileri ve tersine mühendislik üzerine detaylı rehberler ve dökümanlar.
-				</p>
+				<div class="intro-box">
+					<h1>Siber Vizyon</h1>
+					<p class="hero-desc">
+						Siber güvenlik, web zafiyet analizleri, ağ altyapıları, tersine mühendislik ve Linux sistemleri üzerine pratik dokümantasyon ve teknik çalışma günlüğü.
+					</p>
+				</div>
 
-				<div class="posts-container">
-					{
-						posts.map((post) => (
-							<article class="card-box post-card">
-								<a href={`/blog/${post.slug}/`}>
-									{post.data.heroImage && (
-										<img src={post.data.heroImage} alt={post.data.title} class="post-hero" />
-									)}
-									<div class="post-info">
-										<span class="post-date">
-											{new Date(post.data.pubDate).toLocaleDateString('tr-TR', {
-												year: 'numeric',
-												month: 'long',
-												day: 'numeric',
-											})}
-										</span>
-										<h3>{post.data.title}</h3>
-										<p>{post.data.description}</p>
-									</div>
-								</a>
-							</article>
-						))
-					}
+				<div class="banner-area">
+					<Image src={anasayfaImg} alt="Siber Vizyon Workspace" />
+				</div>
+
+				<div class="main-text">
+					<p>
+						Siber Vizyon; kurumsal savunma sistemlerinden sızma testlerine kadar uzanan teknik bir serüvenin kayıt defteridir. Teoriyle yetinmeyip pratikte neyin çalıştığını, siber tehditlerin ve zafiyetlerin anatomisini dökümantasyon haline getiriyorum.
+					</p>
+
+					<h2>Odak Noktaları</h2>
+					
+					<div class="card-box">
+						<h3>🛡️ Web & Siber Güvenlik</h3>
+						<p>Web uygulama zafiyetleri (OWASP), sızma testi metotları ve istismar (exploitation) analizleri.</p>
+					</div>
+
+					<div class="card-box">
+						<h3>🌐 Ağ Güvenliği & Mimarisi</h3>
+						<p>L2/L3 anahtarlama ve yönlendirme, firewall yapılandırmaları ve kurumsal ağ segmentasyonu.</p>
+					</div>
+
+					<div class="card-box">
+						<h3>⚙️ Tersine Mühendislik & Linux</h3>
+						<p>Zararlı yazılım incelemeleri, Linux çekirdek/sistem analizleri ve düşük seviyeli araştırmalar.</p>
+					</div>
+
+					<h2>Misyon</h2>
+					<p>
+						Karmaşık ağ mimarilerini ve güvenlik tekniklerini gereksiz gürültüden arındırarak saf, anlaşılır ve uygulanabilir dokümanlara dönüştürmek.
+					</p>
 				</div>
 			</main>
 		</div>
 
 		<style>
-			.blog-intro {
+			.intro-box {
+				margin-bottom: 1.5rem;
+			}
+			.hero-desc {
 				font-size: 1.1rem;
-				margin: 0.5rem 0 2rem 0;
-			}
-			.posts-container {
-				display: flex;
-				flex-direction: column;
-				gap: 1.5rem;
-			}
-			.post-card {
-				padding: 0 !important;
-				overflow: hidden;
-				transition: transform 0.2s ease, border-color 0.2s ease;
-			}
-			.post-card:hover {
-				transform: translateY(-2px);
-				border-color: var(--accent-blue) !important;
-			}
-			.post-card a {
-				display: block;
-				padding: 1.5rem;
-				text-decoration: none !important;
-			}
-			.post-hero {
-				width: 100%;
-				max-height: 240px;
-				object-fit: cover !important;
-				margin-bottom: 1rem;
-				border-radius: 6px;
-			}
-			.post-date {
-				font-size: 0.85rem;
-				color: var(--accent-blue) !important;
-				font-weight: 700;
-				display: block;
-				margin-bottom: 0.4rem;
-				text-transform: uppercase;
-				letter-spacing: 0.05em;
-			}
-			.post-card h3 {
-				font-size: 1.35rem;
+				font-weight: 500;
+				margin-top: 0.5rem;
 				color: #ffffff !important;
-				margin-bottom: 0.5rem;
 			}
-			.post-card p {
-				font-size: 0.98rem;
-				color: #ffffff !important;
-				opacity: 0.9;
-				margin-bottom: 0;
+			.banner-area {
+				margin: 1.5rem 0 2.5rem 0;
+			}
+			.main-text p {
+				font-size: 1.05rem;
+				margin-bottom: 1.5rem;
 			}
 		</style>
 	</body>
