@@ -1,57 +1,57 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
-import haberlerImg from '../assets/haberler.png';
 ---
 
 <Layout
 	title="Haberler & Tehdit İstihbaratı"
 	description="Siber güvenlik dünyasından son dakika zafiyet analizleri, CVE duyuruları ve dijital teknoloji haberleri."
 	pubDate={new Date('October 14 2026')}
-	heroImage={haberlerImg}
 >
 	<style>
 		.news-header {
 			margin-bottom: 2.5rem;
 		}
 		.news-header h1 {
-			font-size: 2.2rem;
+			font-size: 2rem;
 			font-weight: 800;
-			color: #000000;
+			color: #ffffff;
 			margin-bottom: 0.5rem;
 		}
 		.news-header p {
-			color: #0f172a;
+			color: var(--text-secondary);
 			font-size: 1.05rem;
 			line-height: 1.7;
 		}
 		.news-list {
 			display: flex;
 			flex-direction: column;
-			gap: 2rem;
+			gap: 1.5rem;
 			margin-top: 2rem;
 		}
 		.news-card {
-			border-left: 3px solid #2337ff;
-			padding-left: 1.25rem;
+			background-color: var(--bg-secondary);
+			padding: 1.25rem;
+			border-radius: 8px;
+			border-left: 3px solid var(--accent);
 		}
 		.news-meta {
 			font-size: 0.85rem;
 			font-weight: 700;
-			color: #2337ff;
+			color: var(--accent);
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
 			margin-bottom: 0.25rem;
 		}
 		.news-title {
-			font-size: 1.25rem;
-			font-weight: 800;
-			color: #000000;
+			font-size: 1.2rem;
+			font-weight: 700;
+			color: #ffffff;
 			margin: 0 0 0.5rem 0;
 			line-height: 1.4;
 		}
 		.news-content {
-			color: #000000;
-			font-size: 0.98rem;
+			color: var(--text-primary);
+			font-size: 0.95rem;
 			line-height: 1.7;
 			margin: 0;
 		}
