@@ -2,11 +2,16 @@
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Sidebar from '../components/Sidebar.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+const formattedPubDate = new Date(pubDate).toLocaleDateString('tr-TR', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
 ---
 
 <!doctype html>
@@ -24,14 +29,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					
 					<div class="article-header">
 						<p class="article-date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<span class="last-updated">
-										(Güncellendi: <FormattedDate date={updatedDate} />)
-									</span>
-								)
-							}
+							{formattedPubDate}
 						</p>
 						<h1 class="article-title">{title}</h1>
 						<hr class="header-divider" />
