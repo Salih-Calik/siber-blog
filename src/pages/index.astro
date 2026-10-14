@@ -1,0 +1,36 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import { Image } from 'astro:assets';
+import anasayfaImg from '../assets/ana-sayfa.png';
+---
+
+<!doctype html>
+<html lang="tr">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>🧑‍💻 Siber Güvenlik & Teknoloji Blogu</h1>
+			
+			<div style="margin: 2rem 0; text-align: center;">
+				<Image 
+					src={anasayfaImg} 
+					alt="Ana Sayfa Banner" 
+					style="max-width: 100%; height: auto; border-radius: 12px;" 
+				/>
+			</div>
+
+			<p>
+				Hoş geldiniz! Bu blogda siber güvenlik zafiyet analizleri, ağ mimarileri (L2/L3), 
+				web uygulama güvenliği rehberleri ve güncel teknoloji haberlerini paylaşıyorum.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
