@@ -2,20 +2,20 @@
 // Sidebar Component
 ---
 
-<!-- Hem Masaüstü Hem Mobilde En Üstte Duran Sabit Bar -->
-<header class="top-header">
+<!-- Mobilde En Üstte Duran Bar (Başlık Tam Ortada) -->
+<div class="mobile-header">
 	<button id="menu-toggle" class="hamburger-btn" type="button" aria-label="Menü">
 		<span class="bar"></span>
 		<span class="bar"></span>
 		<span class="bar"></span>
 	</button>
-	<span class="header-brand">Siber Vizyon</span>
-</header>
+	<span class="mobile-brand">Siber Vizyon</span>
+</div>
 
 <!-- Arka Plan Karartması (Overlay) -->
 <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-<!-- Soldan Kayarak Açılan Yan Panel -->
+<!-- Yan Panel (Masaüstünde Sabit, Mobilde Kayar Panel) -->
 <aside id="sidebar-container" class="sidebar-container">
 	<button id="menu-close" class="close-btn" type="button" aria-label="Kapat">&times;</button>
 
@@ -70,121 +70,200 @@
 </script>
 
 <style>
-	/* Üst Bar (Header) - Hem Masaüstü Hem Mobil */
-	.top-header {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: sticky;
-		top: 0;
-		padding: 0.9rem 1.5rem;
-		background-color: var(--bg-sidebar);
-		border-bottom: 1px solid var(--border-line);
-		z-index: 90;
-		width: 100%;
-	}
-
-	.hamburger-btn {
-		position: absolute;
-		left: 1.5rem;
-		background: none;
-		border: none;
-		cursor: pointer;
-		display: flex;
-		flex-direction: column;
-		gap: 5px;
-		padding: 0.3rem;
-		transition: opacity 0.2s ease;
-	}
-
-	.hamburger-btn:hover {
-		opacity: 0.8;
-	}
-
-	.hamburger-btn .bar {
-		width: 22px;
-		height: 2px;
-		background-color: #ffffff;
-		border-radius: 2px;
-	}
-
-	.header-brand {
-		font-size: 1.2rem;
-		font-weight: 800;
-		color: #ffffff;
-		letter-spacing: 0.03em;
-	}
-
-	/* Soldan Kayan Panel Stilleri */
-	.sidebar-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background-color: rgba(0, 0, 0, 0.75);
-		backdrop-filter: blur(4px);
-		z-index: 98;
-		opacity: 0;
-		pointer-events: none;
-		transition: opacity 0.25s ease;
-	}
-
-	.sidebar-overlay.active {
-		opacity: 1;
-		pointer-events: auto;
+	/* MASAÜSTÜ STİLLERİ (Ekran Genişliği > 850px) */
+	.mobile-header, .close-btn, .sidebar-overlay {
+		display: none;
 	}
 
 	.sidebar-container {
-		position: fixed;
-		top: 0;
-		left: -320px; /* Kapalıyken solda saklanır */
-		width: 290px;
-		height: 100vh;
+		width: 280px;
+		min-width: 280px;
 		background-color: var(--bg-sidebar);
 		border-right: 1px solid var(--border-line);
 		padding: 2.5rem 1.5rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-		z-index: 99;
-		box-shadow: 4px 0 24px rgba(0, 0, 0, 0.6);
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		z-index: 100;
 	}
 
-	.sidebar-container.active {
-		transform: translateX(320px); /* Tıklayınca ekrana kayar */
-	}
-
-	.close-btn {
-		position: absolute;
-		top: 1rem;
-		right: 1.2rem;
-		background: none;
-		border: none;
-		color: #ffffff;
-		font-size: 2rem;
-		line-height: 1;
-		cursor: pointer;
-		opacity: 0.7;
-		transition: opacity 0.2s ease;
-	}
-
-	.close-btn:hover {
-		opacity: 1;
-	}
-
-	/* Profil Bilgileri */
 	.profile-header {
 		text-align: center;
-		margin-top: 1rem;
 	}
 
 	.profile-avatar {
-		width: 100px;
-		height: 100px;
+		width: 105px;
+		height: 105px;
 		border-radius: 50%;
 		border: 2px solid var(--accent-blue);
 		margin-bottom: 1rem;
 		object-fit: cover;
 		background-color: #000;
+	}
+
+	.brand-title {
+		font-size: 1.4rem;
+		margin-bottom: 0.2rem;
+	}
+
+	.brand-title a {
+		color: #ffffff !important;
+	}
+
+	.author-name {
+		color: #ffffff !important;
+		font-weight: 700;
+		font-size: 1rem;
+	}
+
+	.author-badge {
+		color: #a1a1aa !important;
+		font-size: 0.8rem;
+		margin-top: 0.2rem;
+	}
+
+	.sidebar-menu {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		margin: 2rem 0;
+	}
+
+	.menu-link {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.7rem 1rem;
+		border-radius: 8px;
+		color: #ffffff !important;
+		font-weight: 600;
+		transition: all 0.2s ease;
+	}
+
+	.menu-link:hover {
+		background-color: var(--bg-card);
+		color: var(--accent-blue) !important;
+	}
+
+	.icon {
+		font-size: 1.1rem;
+	}
+
+	.sidebar-bottom {
+		text-align: center;
+		border-top: 1px solid var(--border-line);
+		padding-top: 1.5rem;
+	}
+
+	.social-group {
+		display: flex;
+		justify-content: center;
+		gap: 1.25rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.social-group a {
+		color: #ffffff !important;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+
+	.social-group a:hover {
+		color: var(--accent-blue) !important;
+	}
+
+	.copyright-text {
+		font-size: 0.75rem;
+		color: #a1a1aa !important;
+	}
+
+	/* MOBİL STİLLERİ (Ekran Genişliği <= 850px) */
+	@media (max-width: 850px) {
+		.mobile-header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: sticky;
+			top: 0;
+			padding: 0.8rem 1.2rem;
+			background-color: var(--bg-sidebar);
+			border-bottom: 1px solid var(--border-line);
+			z-index: 90;
+			width: 100%;
+		}
+
+		.hamburger-btn {
+			position: absolute;
+			left: 1.2rem;
+			background: none;
+			border: none;
+			cursor: pointer;
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			padding: 0.2rem;
+		}
+
+		.hamburger-btn .bar {
+			width: 20px;
+			height: 2px;
+			background-color: #ffffff;
+			border-radius: 2px;
+		}
+
+		.mobile-brand {
+			font-size: 1.15rem;
+			font-weight: 800;
+			color: #ffffff;
+		}
+
+		.close-btn {
+			display: block;
+			position: absolute;
+			top: 0.8rem;
+			right: 1.2rem;
+			background: none;
+			border: none;
+			color: #ffffff;
+			font-size: 2rem;
+			line-height: 1;
+			cursor: pointer;
+		}
+
+		.sidebar-overlay {
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background-color: rgba(0, 0, 0, 0.75);
+			z-index: 98;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.25s ease;
+		}
+
+		.sidebar-overlay.active {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		.sidebar-container {
+			position: fixed;
+			top: 0;
+			left: -300px;
+			width: 280px;
+			height: 100vh;
+			transition: transform 0.25s ease;
+			z-index: 99;
+		}
+
+		.sidebar-container.active {
+			transform: translateX(300px);
+		}
+	}
+</style>
