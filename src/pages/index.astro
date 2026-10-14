@@ -4,7 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
-// 1. Astro Image bileşenini ve yeni resmimizi import ediyoruz
 import { Image } from 'astro:assets';
 import anasayfaImg from '../assets/anasayfa.png';
 ---
@@ -93,7 +92,6 @@ import anasayfaImg from '../assets/anasayfa.png';
 			<p class="sub">Salih Çalık &bull; Off-Sec & Network Logbook</p>
 			
 			<div class="banner-container">
-				<!-- 2. Import ettiğimiz anasayfaImg değişkenini buraya veriyoruz -->
 				<Image 
 					src={anasayfaImg} 
 					alt="Siber Vizyon Workspace" 
