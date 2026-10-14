@@ -2,6 +2,7 @@
 // Sidebar Component
 ---
 
+<!-- Mobilde En Üstte Duran Bar (Başlık Tam Ortada) -->
 <div class="mobile-header">
 	<button id="menu-toggle" class="hamburger-btn" type="button" aria-label="Menü">
 		<span class="bar"></span>
@@ -11,8 +12,10 @@
 	<span class="mobile-brand">Siber Vizyon</span>
 </div>
 
+<!-- Arka Plan Karartması (Overlay) -->
 <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
+<!-- Yan Panel (Masaüstünde Sabit, Mobilde Kayar Panel) -->
 <aside id="sidebar-container" class="sidebar-container">
 	<button id="menu-close" class="close-btn" type="button" aria-label="Kapat">&times;</button>
 
@@ -67,13 +70,14 @@
 </script>
 
 <style>
-	/* Desktop Base */
+	/* MASAÜSTÜ STİLLERİ (Ekran Genişliği > 850px) */
 	.mobile-header, .close-btn, .sidebar-overlay {
 		display: none;
 	}
 
 	.sidebar-container {
 		width: 280px;
+		min-width: 280px;
 		background-color: var(--bg-sidebar);
 		border-right: 1px solid var(--border-line);
 		padding: 2.5rem 1.5rem;
@@ -176,7 +180,7 @@
 		color: #a1a1aa !important;
 	}
 
-	/* Mobile Off-Canvas */
+	/* MOBİL STİLLERİ (Ekran Genişliği <= 850px) */
 	@media (max-width: 850px) {
 		.mobile-header {
 			display: flex;
