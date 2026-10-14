@@ -1,91 +1,67 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Sidebar from '../components/Sidebar.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<Layout
-	title="Haberler & Tehdit İstihbaratı"
-	description="Siber güvenlik dünyasından son dakika zafiyet analizleri, CVE duyuruları ve dijital teknoloji haberleri."
-	pubDate={new Date('October 14 2026')}
->
-	<style>
-		.news-header {
-			margin-bottom: 2.5rem;
-		}
-		.news-header h1 {
-			font-size: 2rem;
-			font-weight: 800;
-			color: #ffffff;
-			margin-bottom: 0.5rem;
-		}
-		.news-header p {
-			color: var(--text-secondary);
-			font-size: 1.05rem;
-			line-height: 1.7;
-		}
-		.news-list {
-			display: flex;
-			flex-direction: column;
-			gap: 1.5rem;
-			margin-top: 2rem;
-		}
-		.news-card {
-			background-color: var(--bg-secondary);
-			padding: 1.25rem;
-			border-radius: 8px;
-			border-left: 3px solid var(--accent);
-		}
-		.news-meta {
-			font-size: 0.85rem;
-			font-weight: 700;
-			color: var(--accent);
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
-			margin-bottom: 0.25rem;
-		}
-		.news-title {
-			font-size: 1.2rem;
-			font-weight: 700;
-			color: #ffffff;
-			margin: 0 0 0.5rem 0;
-			line-height: 1.4;
-		}
-		.news-content {
-			color: var(--text-primary);
-			font-size: 0.95rem;
-			line-height: 1.7;
-			margin: 0;
-		}
-	</style>
+<!doctype html>
+<html lang="tr">
+	<head>
+		<BaseHead title={`Haberler - ${SITE_TITLE}`} description="Güncel Siber Güvenlik Haberleri" />
+	</head>
+	<body>
+		<div class="app-wrapper">
+			<Sidebar />
+			
+			<main class="page-content">
+				<h1>Haberler & Tehdit İstihbaratı</h1>
+				<p class="news-intro">
+					Küresel siber güvenlik gündemi, kritik zafiyet duyuruları (CVE), veri ihlalleri ve dijital altyapıları ilgilendiren teknik gelişmeler.
+				</p>
 
-	<div class="news-header">
-		<p>
-			Küresel siber güvenlik gündemi, kritik zafiyet duyuruları (CVE), veri ihlalleri ve dijital altyapıları ilgilendiren teknik gelişmelere dair özet aktarımlar.
-		</p>
-	</div>
+				<div class="news-container">
+					<article class="card-box">
+						<div class="news-date">14 EKİM 2026 &bull; TEHDİT ANALİZİ</div>
+						<h3>LLM ve Yapay Zeka Sistemlerinde Yeni Tür "Prompt Injection" Zafiyetleri Artıyor</h3>
+						<p>
+							Güvenlik araştırmacıları, kurumsal sistemlere entegre edilen yapay zeka ajanlarının dolaylı komut enjeksiyonu (Indirect Prompt Injection) ile suistimal edildiğini doğruladı. Saldırganların yetkisiz veri sızdırdığı olaylara karşı yeni izleme protokolleri yayımlandı.
+						</p>
+					</article>
 
-	<div class="news-list">
-		<article class="news-card">
-			<div class="news-meta">14 Ekim 2026 &bull; Tehdit Analizi</div>
-			<h3 class="news-title">LLM ve Yapay Zeka Sistemlerinde Yeni Tür "Prompt Injection" Zafiyetleri Artıyor</h3>
-			<p class="news-content">
-				Güvenlik araştırmacıları, kurumsal sistemlere entegre edilen yapay zeka ajanlarının dolaylı komut enjeksiyonu (Indirect Prompt Injection) ile suistimal edildiğini doğruladı. Saldırganların, sistem komutlarını manipüle ederek yetkisiz veri sızdırdığı olaylara karşı yeni izleme ve filtreleme protokolleri yayımlandı.
-			</p>
-		</article>
+					<article class="card-box">
+						<div class="news-date">11 EKİM 2026 &bull; ALTYAPI & GELİŞTİRİCİ</div>
+						<h3>Açık Kaynak Kod Depolarında "Typosquatting" Saldırılarına Karşı Yeni Önlemler</h3>
+						<p>
+							NPM ve PyPI gibi paket yöneticileri, zararlı yazılım içeren taklit paket yayınlarının önüne geçmek adına geliştiriciler için donanım tabanlı 2FA ve zorunlu imzalama süreçlerini devreye soktu.
+						</p>
+					</article>
 
-		<article class="news-card">
-			<div class="news-meta">11 Ekim 2026 &bull; Altyapı & Geliştirici</div>
-			<h3 class="news-title">Açık Kaynak Kod Depolarında "Typosquatting" Saldırılarına Karşı Yeni Kimlik Doğrulama</h3>
-			<p class="news-content">
-				NPM ve PyPI gibi paket yöneticileri, zararlı yazılım içeren taklit paket yayınlarının önüne geçmek adına geliştiriciler için donanım tabanlı 2FA ve zorunlu imzalama süreçlerini devreye soktu. Son çeyrekte engellenen zararlı paket sayısı rekor seviyeye ulaştı.
-			</p>
-		</article>
+					<article class="card-box">
+						<div class="news-date">08 EKİM 2026 &bull; SİBER SAVUNMA</div>
+						<h3>Kritik Ağ Cihazlarında Sıfırıncı Gün (0-Day) Zafiyet Alarmı</h3>
+						<p>
+							Kurumsal L3 router ve firewall ürünlerinde tespit edilen uzaktan kod çalıştırma (RCE) zafiyeti için üretici firmalar acil yamalar yayımladı. Güvenlik ekiplerinin yönetim arayüzlerini derhal izole etmeleri öneriliyor.
+						</p>
+					</article>
+				</div>
+			</main>
+		</div>
 
-		<article class="news-card">
-			<div class="news-meta">08 Ekim 2026 &bull; Siber Savunma</div>
-			<h3 class="news-title">Kritik Ağ Cihazlarında Sıfırıncı Gün (0-Day) Zafiyet Alarmı</h3>
-			<p class="news-content">
-				Kurumsal L3 router ve firewall ürünlerinde tespit edilen uzaktan kod çalıştırma (RCE) zafiyeti için üretici firmalar acil yamalar yayımladı. Güvenlik ekiplerinin, dışa açık cihazlardaki yönetim arayüzlerini derhal izole etmeleri öneriliyor.
-			</p>
-		</article>
-	</div>
-</Layout>
+		<style>
+			.news-intro {
+				font-size: 1.1rem;
+				margin: 0.5rem 0 2rem 0;
+			}
+			.news-date {
+				font-size: 0.8rem;
+				font-weight: 700;
+				color: var(--accent-blue) !important;
+				margin-bottom: 0.4rem;
+				letter-spacing: 0.05em;
+			}
+			.news-container {
+				margin-top: 1.5rem;
+			}
+		</style>
+	</body>
+</html>

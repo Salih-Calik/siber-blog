@@ -1,14 +1,14 @@
 /* ==========================================
-   SİBER VİZYON - KESİNTİSİZ KOYU TEMA (DARK STYLES)
+   SİBER VİZYON - MASTER DARK THEME
    ========================================== */
 
 :root {
-	--bg-primary: #18181b;      /* Ana arka plan (Koyu) */
-	--bg-secondary: #27272a;    /* Kart arka planları */
-	--border-color: #3f3f46;    /* İnce gri sınırlar */
-	--text-main: #f4f4f5;       /* Parlak beyaz metin (Okunur) */
-	--text-muted: #a1a1aa;      /* Açık gri alt metinler */
-	--accent-blue: #3b82f6;     /* Mavi vurgu rengi */
+	--bg-main: #0e0e11;        /* Gece Siyahı Arka Plan */
+	--bg-card: #18181c;        /* Kart / Kutucuk Grisi */
+	--bg-sidebar: #121215;     /* Sol Panel Arka Planı */
+	--border-line: #27272a;    /* Şık İnce Kenarlık */
+	--text-white: #ffffff;     /* %100 SAF BEYAZ METİN */
+	--accent-blue: #3b82f6;    /* Neon Mavi Vurgu */
 	--accent-hover: #60a5fa;
 }
 
@@ -19,96 +19,102 @@
 }
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-	background-color: var(--bg-primary) !important;
-	color: var(--text-main) !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	background-color: var(--bg-main) !important;
+	color: var(--text-white) !important;
 	line-height: 1.7;
 	font-size: 16px;
+	overflow-x: hidden;
 }
 
-main {
-	max-width: 800px;
+.app-wrapper {
+	display: flex;
+	min-height: 100vh;
+}
+
+.page-content {
+	flex: 1;
+	max-width: 860px;
 	margin: 0 auto;
-	padding: 2rem 1rem;
+	padding: 3rem 2rem;
 }
 
-/* Başlıklar ve Metinler */
-h1, h2, h3, h4, h5, h6 {
-	color: #ffffff !important;
-	font-weight: 700;
-	line-height: 1.3;
-	margin-bottom: 0.8rem;
+/* TÜM METİNLER SAF BEYAZ */
+h1, h2, h3, h4, h5, h6, p, li, span, div, a, time, article {
+	color: var(--text-white) !important;
 }
 
-p, li, span, div, article {
-	color: var(--text-main);
-}
-
-.sub, .news-content, .focus-desc, .dark-text, time {
-	color: var(--text-muted) !important;
-}
+/* Başlık Büyüklükleri */
+h1 { font-size: 2.2rem; font-weight: 800; }
+h2 { font-size: 1.6rem; font-weight: 700; margin-top: 2rem; }
+h3 { font-size: 1.25rem; font-weight: 700; }
 
 a {
 	color: var(--accent-blue) !important;
 	text-decoration: none;
+	transition: all 0.2s ease;
 }
 
 a:hover {
 	color: var(--accent-hover) !important;
 }
 
-/* Görsellerin Kutuya Tam Oturması ve Kırpılmaması */
+/* Mavi Vurgulu Şık Kartlar */
+.card-box {
+	background-color: var(--bg-card) !important;
+	border: 1px solid var(--border-line);
+	border-left: 4px solid var(--accent-blue) !important;
+	border-radius: 10px;
+	padding: 1.25rem 1.5rem;
+	margin-bottom: 1.25rem;
+}
+
+.card-box h3, .card-box h4 {
+	color: var(--text-white) !important;
+	margin-bottom: 0.5rem;
+}
+
+.card-box p {
+	color: var(--text-white) !important;
+	opacity: 0.9;
+	font-size: 0.98rem;
+}
+
+/* Görsel Koruma (Taşma / Kırpılma Önleyici) */
 img {
 	max-width: 100% !important;
 	height: auto !important;
 	object-fit: contain !important;
-	background-color: #09090b;
 	border-radius: 8px;
-	border: 1px solid var(--border-color);
-	padding: 6px;
-	box-sizing: border-box;
+	border: 1px solid var(--border-line);
+	background-color: #000000;
 }
 
-/* Kartlar ve Liste Elemanları */
-.news-card, .focus-card, main ul li {
-	background-color: var(--bg-secondary) !important;
-	border: 1px solid var(--border-color) !important;
-	border-left: 4px solid var(--accent-blue) !important;
-	padding: 1.25rem !important;
-	border-radius: 8px !important;
-	margin-bottom: 1.25rem !important;
-}
-
-/* Üst ve Alt Menü (Header & Footer) Düzeltmeleri */
-header, footer, nav {
-	background-color: var(--bg-primary) !important;
-	color: var(--text-main) !important;
-	border-color: var(--border-color) !important;
-}
-
-header a, footer a {
-	color: var(--text-main) !important;
-}
-
-footer {
-	text-align: center;
-	padding: 2rem 1rem;
-	border-top: 1px solid var(--border-color);
-	margin-top: 3rem;
-}
-
-/* Kod Blokları */
+/* Kod Alanları */
 code {
-	background-color: #09090b !important;
+	background-color: #1f1f23 !important;
 	color: #f43f5e !important;
-	padding: 0.2rem 0.4rem;
+	padding: 0.2rem 0.5rem;
 	border-radius: 4px;
+	font-family: monospace;
 }
 
 pre {
-	background-color: #09090b !important;
+	background-color: #1f1f23 !important;
 	padding: 1.25rem;
 	border-radius: 8px;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-line);
 	overflow-x: auto;
+	margin: 1.5rem 0;
+}
+
+/* Mobil Uyum */
+@media (max-width: 850px) {
+	.app-wrapper {
+		flex-direction: column;
+	}
+	.page-content {
+		padding: 1.5rem 1rem;
+		width: 100%;
+	}
 }

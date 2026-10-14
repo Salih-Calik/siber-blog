@@ -1,9 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-
 import { Image } from 'astro:assets';
 import anasayfaImg from '../assets/ana-sayfa.png';
 ---
@@ -12,124 +10,74 @@ import anasayfaImg from '../assets/ana-sayfa.png';
 <html lang="tr">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				max-width: 680px;
-				margin: 0 auto;
-				padding: 2.5rem 1rem;
-				color: #000000; /* Bütün ana metinler simsiyah */
-			}
-			.banner-container img {
-				width: 100%;
-				height: auto;
-				border-radius: 8px;
-				margin: 1.5rem 0 2.5rem 0;
-			}
-			h1 {
-				font-size: 2.2rem;
-				font-weight: 800;
-				margin-bottom: 0.2rem;
-				color: #000000;
-			}
-			.sub {
-				color: #1e293b; /* Koyu slate siyahı */
-				font-size: 1rem;
-				font-weight: 600;
-				margin-bottom: 2rem;
-			}
-			p, li {
-				line-height: 1.8;
-				font-size: 1.05rem;
-				color: #000000;
-			}
-			.lead {
-				font-size: 1.15rem;
-				font-weight: 600;
-				margin-bottom: 1.5rem;
-				color: #000000;
-			}
-			.focus-grid {
-				display: flex;
-				flex-direction: column;
-				gap: 1.25rem;
-				margin: 2rem 0;
-				padding-left: 0;
-				list-style: none;
-			}
-			.focus-item {
-				border-left: 3px solid #2337ff;
-				padding-left: 1.25rem;
-			}
-			.focus-title {
-				font-weight: 700;
-				display: block;
-				margin-bottom: 0.25rem;
-				color: #000000;
-			}
-			.focus-desc {
-				color: #0f172a; /* Net okunur koyu renk */
-				font-size: 0.95rem;
-			}
-			h2 {
-				font-size: 1.4rem;
-				font-weight: 800;
-				margin-top: 3rem;
-				margin-bottom: 1rem;
-				color: #000000;
-			}
-			.dark-text {
-				color: #0f172a;
-				font-size: 0.95rem;
-			}
-		</style>
 	</head>
 	<body>
-		<Header />
-		<main>
-			<h1>Siber Vizyon</h1>
-			<p class="sub">Salih Çalık &bull; Off-Sec & Network Logbook</p>
+		<div class="app-wrapper">
+			<Sidebar />
 			
-			<div class="banner-container">
-				<Image 
-					src={anasayfaImg} 
-					alt="Siber Vizyon Workspace" 
-				/>
-			</div>
+			<main class="page-content">
+				<div class="intro-box">
+					<h1>Siber Vizyon</h1>
+					<p class="hero-desc">
+						Burası dijital dünya zırhlarının nerede kırıldığını, ağların nasıl konuşlandırıldığını 
+						ve teknolojinin güvenlik ekseninde nasıl şekillendiğini anlama çabasıdır.
+					</p>
+				</div>
 
-			<p class="lead">
-				Burası dijital dünya zırhlarının nerede kırıldığını, ağların nasıl konuşlandırıldığını 
-				ve teknolojinin güvenlik ekseninde nasıl şekillendiğini anlama çabasıdır.
-			</p>
+				<div class="banner-area">
+					<Image src={anasayfaImg} alt="Siber Vizyon Workspace" />
+				</div>
 
-			<p>
-				Siber Vizyon; kurumsal savunma sistemlerinden (L2/L3) sızma testlerine (Offensive Security) 
-				kadar uzanan teknik bir serüvenin kayıt defteridir. Teoriyle yetinmeyip pratikte neyin 
-				çalıştığını, siber tehditlerin ve zafiyetlerin anatomisini dökümantasyon haline getiriyorum.
-			</p>
+				<div class="main-text">
+					<p>
+						Siber Vizyon; kurumsal savunma sistemlerinden (L2/L3) sızma testlerine (Offensive Security) 
+						kadar uzanan teknik bir serüvenin kayıt defteridir. Teoriyle yetinmeyip pratikte neyin 
+						çalıştığını, siber tehditlerin ve zafiyetlerin anatomisini dokümantasyon haline getiriyorum.
+					</p>
 
-			<h2>Odak Noktaları</h2>
-			<ul class="focus-grid">
-				<li class="focus-item">
-					<span class="focus-title">Ofansif Güvenlik</span>
-					<span class="focus-desc">Web uygulama zafiyetleri, istismar (exploitation) yöntemleri ve pratik sızma testi (OSCP / OWASP) analizleri.</span>
-				</li>
-				<li class="focus-item">
-					<span class="focus-title">Ağ & Altyapı Mimarisi</span>
-					<span class="focus-desc">L2/L3 anahtarlama ve yönlendirme, firewall yapılandırmaları ve kurumsal ağların segmentasyonu.</span>
-				</li>
-				<li class="focus-item">
-					<span class="focus-title">Tehdit & Zafiyet Günlüğü</span>
-					<span class="focus-desc">Gündemdeki sıfırıncı gün (0-day) açıkları, CVE analizleri ve dijital dünyanın en taze kırılma noktaları.</span>
-				</li>
-			</ul>
+					<h2>Odak Noktaları</h2>
+					
+					<div class="card-box">
+						<h3>🛡️ Ofansif Güvenlik</h3>
+						<p>Web uygulama zafiyetleri, istismar (exploitation) yöntemleri ve pratik sızma testi (OSCP / OWASP) analizleri.</p>
+					</div>
 
-			<h2>Misyon</h2>
-			<p class="dark-text">
-				Karmaşık ağ mimarilerini ve ofansif teknikleri, gereksiz gürültüden arındırarak saf, 
-				anlaşılır ve uygulanabilir dokümanlara dönüştürmek. Bilgiyi paylaşarak hem kendi gelişimimi 
-				kayıt altına almak hem de topluluğun dijital savunma hattını güçlendirmek.
-			</p>
-		</main>
-		<Footer />
+					<div class="card-box">
+						<h3>🌐 Ağ & Altyapı Mimarisi</h3>
+						<p>L2/L3 anahtarlama ve yönlendirme, firewall yapılandırmaları ve kurumsal ağların segmentasyonu.</p>
+					</div>
+
+					<div class="card-box">
+						<h3>⚡ Tehdit & Zafiyet Günlüğü</h3>
+						<p>Gündemdeki sıfırıncı gün (0-day) açıkları, CVE analizleri ve dijital dünyanın en taze kırılma noktaları.</p>
+					</div>
+
+					<h2>Misyon</h2>
+					<p>
+						Karmaşık ağ mimarilerini ve ofansif teknikleri, gereksiz gürültüden arındırarak saf, 
+						anlaşılır ve uygulanabilir dokümanlara dönüştürmek. Bilgiyi paylaşarak hem kendi gelişimimi 
+						kayıt altına almak hem de topluluğun dijital savunma hattını güçlendirmek.
+					</p>
+				</div>
+			</main>
+		</div>
+
+		<style>
+			.intro-box {
+				margin-bottom: 1.5rem;
+			}
+			.hero-desc {
+				font-size: 1.15rem;
+				font-weight: 500;
+				margin-top: 0.5rem;
+			}
+			.banner-area {
+				margin: 1.5rem 0 2.5rem 0;
+			}
+			.main-text p {
+				font-size: 1.05rem;
+				margin-bottom: 1.5rem;
+			}
+		</style>
 	</body>
 </html>
