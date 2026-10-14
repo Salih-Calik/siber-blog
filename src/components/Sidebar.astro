@@ -2,7 +2,30 @@
 // Sidebar Component
 ---
 
-<aside class="sidebar-container">
+<!-- Mobilde En Üstte Duran Bar (Başlık Tam Ortada) -->
+<div class="mobile-header">
+	<button id="menu-toggle" class="hamburger-btn" aria-label="Menüyü Aç">
+		<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<line x1="3" y1="12" x2="21" y2="12"></line>
+			<line x1="3" y1="6" x2="21" y2="6"></line>
+			<line x1="3" y1="18" x2="21" y2="18"></line>
+		</svg>
+	</button>
+	<span class="mobile-brand">Siber Vizyon</span>
+</div>
+
+<!-- Arka Plan Karartması (Overlay) -->
+<div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+<!-- Yan Panel (Sidebar / Off-Canvas Drawer) -->
+<aside id="sidebar-container" class="sidebar-container">
+	<button id="menu-close" class="close-btn" aria-label="Kapat">
+		<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<line x1="18" y1="6" x2="6" y2="18"></line>
+			<line x1="6" y1="6" x2="18" y2="18"></line>
+		</svg>
+	</button>
+
 	<div class="profile-header">
 		<a href="/" class="avatar-wrap">
 			<img src="/avatar.png" alt="Salih Çalık Fotoğrafı" class="profile-avatar" />
@@ -37,124 +60,4 @@
 			</a>
 			<a href="https://www.instagram.com/root.vesper/" target="_blank" rel="noopener noreferrer" title="Instagram">
 				<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-					<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
-				</svg>
-			</a>
-		</div>
-		<p class="copyright-text">&copy; 2026 Siber Vizyon</p>
-	</div>
-</aside>
-
-<style>
-	.sidebar-container {
-		width: 280px;
-		background-color: var(--bg-sidebar);
-		border-right: 1px solid var(--border-line);
-		padding: 2.5rem 1.5rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		position: sticky;
-		top: 0;
-		height: 100vh;
-	}
-
-	.profile-header {
-		text-align: center;
-	}
-
-	.profile-avatar {
-		width: 105px;
-		height: 105px;
-		border-radius: 50%;
-		border: 2px solid var(--accent-blue);
-		margin-bottom: 1rem;
-		object-fit: cover;
-		background-color: #000;
-	}
-
-	.brand-title {
-		font-size: 1.4rem;
-		margin-bottom: 0.2rem;
-	}
-
-	.brand-title a {
-		color: #ffffff !important;
-	}
-
-	.author-name {
-		color: #ffffff !important;
-		font-weight: 700;
-		font-size: 1rem;
-	}
-
-	.author-badge {
-		color: #a1a1aa !important;
-		font-size: 0.8rem;
-		margin-top: 0.2rem;
-	}
-
-	.sidebar-menu {
-		display: flex;
-		flex-direction: column;
-		gap: 0.6rem;
-		margin: 2rem 0;
-	}
-
-	.menu-link {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		padding: 0.7rem 1rem;
-		border-radius: 8px;
-		color: #ffffff !important;
-		font-weight: 600;
-		transition: all 0.2s ease;
-	}
-
-	.menu-link:hover {
-		background-color: var(--bg-card);
-		color: var(--accent-blue) !important;
-	}
-
-	.nav-icon {
-		color: var(--accent-blue);
-	}
-
-	.sidebar-bottom {
-		text-align: center;
-		border-top: 1px solid var(--border-line);
-		padding-top: 1.5rem;
-	}
-
-	.social-group {
-		display: flex;
-		justify-content: center;
-		gap: 1.25rem;
-		margin-bottom: 0.75rem;
-	}
-
-	.social-group a {
-		color: #ffffff !important;
-	}
-
-	.social-group a:hover {
-		color: var(--accent-blue) !important;
-	}
-
-	.copyright-text {
-		font-size: 0.75rem;
-		color: #a1a1aa !important;
-	}
-
-	@media (max-width: 850px) {
-		.sidebar-container {
-			width: 100%;
-			height: auto;
-			position: relative;
-			border-right: none;
-			border-bottom: 1px solid var(--border-line);
-			padding: 1.5rem;
-		}
-	}
-</style>
+					<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.84
